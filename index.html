@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    <!-- <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script> -->
+    <script src="cornify.js"></script>
     <title>Key Detection</title>
 </head>
-<body>  
+<body>
+    <style>
+        body {
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        }
+    </style>
     <script>
-
+        const pressed = [];
+        const secretCode = "ilovesheetal";
+        const n = secretCode.length;
+        window.addEventListener("keyup", (e) => {
+            pressed.push(e.key);
+            pressed.splice(0, pressed.length - n);
+            if(pressed.join('').includes(secretCode)){
+                console.log("ding Ding");
+                cornify_add();
+            }
+        })
     </script>
 </body>
 </html>
